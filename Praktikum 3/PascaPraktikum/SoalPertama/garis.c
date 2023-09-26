@@ -24,7 +24,7 @@ void BacaGARIS (GARIS * L){
             MakeGARIS(P1, P2, L);
             break; // Menghentikan loop ketika GARIS valid ditemukan
         }
-    } while (1);
+    } while (EQ(P1, P2));
 }
 
 void TulisGARIS (GARIS L){
