@@ -1,7 +1,9 @@
-#include  <stdio.h>
-#include "garis.c"
+#include <stdio.h>
+
+#include "garis.h"
 
 int main() {
-    GARIS L1;
-    MakeGARIS(MakePOINT(1,1), MakePOINT(2,2), &L1);
-}
+    GARIS L;
+    BacaGARIS(&L);
+    TulisGARIS(L);
+    return 0;  }

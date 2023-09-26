@@ -28,11 +28,11 @@ void BacaGARIS (GARIS * L){
 }
 
 void TulisGARIS (GARIS L){
-    printf("((");
+    printf("(");
     TulisPOINT(PAwal(L));
     printf("),(");
     TulisPOINT(PAkhir(L));
-    printf("))");
+    printf(")");
 }
 
 float PanjangGARIS (GARIS L){
