@@ -10,7 +10,7 @@
 
 List MakeList() {
     List L;
-    for (int i = 0; i <= MaxEl-1; i++) {
+    for (int i = 0; i <= MaxEl; i++) {
         L.A[i] = Mark;
     }
     return L;
@@ -30,7 +30,7 @@ void Set(List *L, IdxType i, ElType v){
 
 int Length(List L){
     int sum = 0;
-    while (L.A[sum] != Mark && sum <= MaxEl-1)
+    while (L.A[sum] != Mark && sum <= MaxEl)
     {
         sum++;
     }
@@ -47,7 +47,7 @@ IdxType LastIdx(List L){
 }
 
 boolean IsIdxValid(List L, IdxType i){
-    return (i>=0 && i<=(MaxEl-1) && L.A[i] != InvalidIdx);
+    return (i>=0 && i<=(MaxEl-1));
 }
 
 boolean IsIdxEff(List L, IdxType i){
@@ -56,7 +56,7 @@ boolean IsIdxEff(List L, IdxType i){
 
 boolean Search(List L, ElType X){
     boolean found = false;
-    for (int i=0; i<=LastIdx(L); i++){
+    for (int i=0; i<=MaxEl; i++){
         if (L.A[i] == X){
             found = true;
         }
@@ -79,7 +79,7 @@ void InsertAt(List *L, ElType X, IdxType i){
     if (IsEmpty(*L)){
         L->A[0] = X;
     } else {
-        for (int j = LastIdx(*L); j>=i; j--){
+        for (int j=MaxEl; j>=i; j--){
             L->A[j+1] = L->A[j];
         }
         L->A[i] = X;
@@ -122,6 +122,7 @@ List Concat(List L1, List L2) {
     }
     for (int j = LastIdx(L1)+1; j <= LastIdx(L2)+LastIdx(L1); j++) {
         L.A[j] = L2.A[j-LastIdx(L1)-1];
+        i++;
     }
     return L;
 }
