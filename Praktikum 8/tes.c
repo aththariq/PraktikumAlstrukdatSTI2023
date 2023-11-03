@@ -1,29 +1,61 @@
 #include <stdio.h>
-#include "hashmap.h"
-
-#include <stdio.h>
-#include "hashmap.h"
+#include "set.h"
 
 int main() {
-    HashMap M;
-    keytype keys[] = {5, 15, 25, 35, 45}; // contoh kunci
-    valuetype values[] = {10, 20, 30, 40, 50}; // contoh nilai
+    Set S;
+    infotype Elmt;
 
-    // Menggunakan fungsi CreateEmpty
-    CreateEmpty(&M);
+    // Membuat set kosong
+    CreateEmpty(&S);
 
-    // Menggunakan fungsi Insert
-    for (int i = 0; i < 5; i++) {
-        Insert(&M, keys[i], values[i]);
+    // Menguji apakah set kosong
+    if (IsEmpty(S)) {
+        printf("Set kosong.\n");
+    } else {
+        printf("Set tidak kosong.\n");
     }
 
-    // Menggunakan fungsi Value untuk mencari nilai berdasarkan kunci
-    keytype searchKey = 25;
-    valuetype result = Value(M, searchKey);
-    if (result != Undefined) {
-        printf("Nilai yang ditemukan untuk kunci %d adalah %d\n", searchKey, result);
+    // Menambahkan elemen ke dalam set
+    Elmt = 5;
+    Insert(&S, Elmt);
+
+    Elmt = 7;
+    Insert(&S, Elmt);
+
+    Elmt = 5; // Menambahkan elemen yang sudah ada
+    Insert(&S, Elmt);
+
+    // Menguji apakah set penuh
+    if (IsFull(S)) {
+        printf("Set penuh.\n");
     } else {
-        printf("Kunci %d tidak ditemukan\n", searchKey);
+        printf("Set tidak penuh.\n");
+    }
+
+    // Mencetak semua elemen dalam set
+    printf("Elemen dalam set: ");
+    for (int i = 0; i < S.Count; i++) {
+        printf("%d ", S.Elements[i]);
+    }
+    printf("\n");
+
+    // Menghapus elemen dari set
+    Elmt = 7;
+    Delete(&S, Elmt);
+
+    // Mencetak semua elemen dalam set setelah penghapusan
+    printf("Elemen dalam set setelah penghapusan: ");
+    for (int i = 0; i < S.Count; i++) {
+        printf("%d ", S.Elements[i]);
+    }
+    printf("\n");
+
+    // Menguji apakah sebuah elemen merupakan member dari set
+    Elmt = 5;
+    if (IsMember(S, Elmt)) {
+        printf("%d adalah anggota dari set.\n", Elmt);
+    } else {
+        printf("%d bukan anggota dari set.\n", Elmt);
     }
 
     return 0;

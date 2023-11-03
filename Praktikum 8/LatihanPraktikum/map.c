@@ -1,9 +1,3 @@
-//Nama: Aththariq Lisan Qur'an Daulah Sentono
-//NIM: 18222013
-//Tanggal: 18 Oktober 2023
-//Topik Praktikum: Praktikum 8 
-//Deskripsi: Soal 2
-
 #include <stdio.h>
 #include "map.h"
 
@@ -12,24 +6,25 @@ void CreateEmpty(Map *M){
 }
 
 boolean IsEmpty(Map M){
-    return (M.Count == Nil);
+    return M.Count == Nil;
 }
 
 boolean IsFull(Map M){
-    return (M.Count == MaxEl);
+    return M.Count == MaxEl;
 }
 
 valuetype Value(Map M, keytype k){
     int i = 0;
-    while (i < M.Count && M.Elements[i].Key != k){
+    while(i<M.Count && M.Elements[i].Key != k){
         i++;
     }
-    if (i < M.Count){
+    if(i<M.Count){
         return M.Elements[i].Value;
-    } else {
+    }else{
         return Undefined;
     }
 }
+
 
 void Insert(Map *M, keytype k, valuetype v){
     if(IsEmpty(*M)){
