@@ -69,4 +69,19 @@ void Delete(Map *M, keytype k);
 boolean IsMember(Map M, keytype k);
 /* Mengembalikan true jika k adalah member dari M */
 
+//------------------------------adt lain//
+
+void PrintMap(Map M);
+/* I.S. M terdefinisi */
+/* F.S. M dicetak ke layar dengan format:
+        <key1> : <value1>
+        <key2> : <value2>
+        ...
+        <keyn> : <valuen>
+*/
+
+void find(Map M, valuetype v, keytype *k);
+/* I.S. M terdefinisi */
+/* F.S. k adalah key dari M dengan value v */
+
 #endif

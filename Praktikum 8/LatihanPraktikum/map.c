@@ -61,3 +61,21 @@ boolean IsMember(Map M, keytype k){
     }
     return (i < M.Count);
 }
+
+void PrintMap(Map M){
+    for(int i=0; i<M.Count; i++){
+        printf("%d : %d\n", M.Elements[i].Key, M.Elements[i].Value);
+    }
+}
+
+void find(Map M, valuetype v, keytype *k){
+    int i = 0;
+    while(i<M.Count && M.Elements[i].Value != v){
+        i++;
+    }
+    if(i<M.Count){
+        *k = M.Elements[i].Key;
+    }else{
+        *k = Undefined;  //atau 0 ya?
+    }
+}

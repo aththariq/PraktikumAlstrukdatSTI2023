@@ -12,9 +12,7 @@ int main() {
 
     // Print the elements
     printf("Elements in the map:\n");
-    for (int i = 0; i < M.Count; i++) {
-        printf("Key: %d, Value: %d\n", M.Elements[i].Key, M.Elements[i].Value);
-    }
+    PrintMap(M);
 
     // Testing the Value function
     keytype keyToFind = 2;
@@ -31,9 +29,7 @@ int main() {
 
     // Print the elements after deletion
     printf("Elements in the map after deletion:\n");
-    for (int i = 0; i < M.Count; i++) {
-        printf("Key: %d, Value: %d\n", M.Elements[i].Key, M.Elements[i].Value);
-    }
+    PrintMap(M);
 
     // Testing the IsMember function
     keytype keyToCheck = 1;
@@ -41,6 +37,16 @@ int main() {
         printf("Key %d is a member of the map.\n", keyToCheck);
     } else {
         printf("Key %d is not a member of the map.\n", keyToCheck);
+    }
+
+    // Testing the find function
+    valuetype valueToFind = 20;
+    keytype keyFound;
+    find(M, valueToFind, &keyFound);
+    if (keyFound != Undefined) {
+        printf("Key for value %d is: %d\n", valueToFind, keyFound);
+    } else {
+        printf("Value not found\n");
     }
 
     return 0;
