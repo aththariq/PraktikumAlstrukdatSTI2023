@@ -107,3 +107,143 @@ void InsertLast (List *L, address P){
         InsertAfter(L,P,Last);
     }
 }
+
+void DelFirst (List *L, address *P){
+    *P = First(*L);
+    First(*L) = Next(*P);
+    Next(*P) = Nil;
+}
+
+void DelP (List *L, infotype X){
+    address P = First(*L);
+    address Prec = Nil;
+    while (P != Nil && Info(P) != X){
+        Prec = P;
+        P = Next(P);
+    }
+    if (P != Nil){
+        if (Prec == Nil){
+            First(*L) = Next(P);
+        } else {
+            Next(Prec) = Next(P);
+        }
+        Next(P) = Nil;
+        Dealokasi(&P);
+    }
+}
+
+void DelLast (List *L, address *P){
+    address Last = First(*L);
+    address Prec = Nil;
+    while (Next(Last) != Nil){
+        Prec = Last;
+        Last = Next(Last);
+    }
+    *P = Last;
+    if (Prec == Nil){
+        First(*L) = Nil;
+    } else {
+        Next(Prec) = Nil;
+    }
+}
+
+void DelAfter (List *L, address *Pdel, address Prec){
+    *Pdel = Next(Prec);
+    Next(Prec) = Next(*Pdel);
+    Next(*Pdel) = Nil;
+}
+
+void PrintInfo (List L){
+    address P = First(L);
+    printf("[");
+    while (P != Nil){
+        printf("%d",Info(P));
+        if (Next(P) != Nil){
+            printf(",");
+        }
+        P = Next(P);
+    }
+    printf("]\n");
+}
+
+int NbElmt (List L){
+    int count = 0;
+    address P = First(L);
+    while (P != Nil){
+        count++;
+        P = Next(P);
+    }
+    return count;
+}
+
+infotype Max (List L){
+    address P = First(L);
+    infotype max = Info(P); //integer
+    while (P != Nil){
+        if (Info(P) > max){
+            max = Info(P);
+        }
+        P = Next(P);
+    }
+    return max;
+}
+address AdrMax (List L){
+    address P = First(L);
+    address max = P; //pointer to elmtlist
+    while (P != Nil){
+        if (Info(P) > Info(max)){
+            max = P;
+        }
+        P = Next(P);
+    }
+    return max;
+}
+
+infotype Min (List L){
+    address P = First(L);
+    infotype min = Info(P); //integer
+    while (P != Nil){
+        if (Info(P) < min){
+            min = Info(P);
+        }
+        P = Next(P);
+    }
+    return min;
+}
+
+address AdrMin (List L){
+    address P = First(L);
+    address min = P; //pointer to elmtlist
+    while (P != Nil){
+        if (Info(P) < Info(min)){
+            min = P;
+        }
+        P = Next(P);
+    }
+    return min;
+}
+
+float Average (List L){
+    address P = First(L);
+    float sum = 0;
+    int count = 0;
+    while (P != Nil){
+        sum += Info(P);
+        count++;
+        P = Next(P);
+    }
+    return sum/count;
+}
+
+void InversList (List *L){
+    address P = First(*L);
+    address Prec = Nil;
+    address NextP = Nil;
+    while (P != Nil){
+        NextP = Next(P);
+        Next(P) = Prec;
+        Prec = P;
+        P = NextP;
+    }
+    First(*L) = Prec;
+}
