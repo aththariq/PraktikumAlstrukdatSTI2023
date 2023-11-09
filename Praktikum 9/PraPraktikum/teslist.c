@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include "listlinier.h"
+
+int main() {
+    // Buat list baru
+    List L;
+    CreateEmpty(&L);
+
+    // Tambahkan elemen ke dalam list
+    InsVLast(&L, 5);
+    InsVLast(&L, 10);
+    InsVLast(&L, 15);
+    InsVLast(&L, 20);
+
+    // Cetak isi list
+    printf("Isi awal list: ");
+    PrintInfo(L);
+
+    // Contoh penggunaan fungsi-fungsi lain
+    infotype max = Max(L);
+    printf("Nilai maksimum: %d\n", max);
+
+    infotype min = Min(L);
+    printf("Nilai minimum: %d\n", min);
+
+    float average = Average(L);
+    printf("Rata-rata nilai: %.2f\n", average);
+
+    // Lakukan inversi list
+    InversList(&L);
+    printf("Isi setelah inversi list: ");
+    PrintInfo(L);
+
+    // Buat list baru
+    List L2;
+    CreateEmpty(&L2);
+
+    InsVLast(&L2, 25);
+    InsVLast(&L2, 30);
+
+    // Konkatenasi list L dan L2 ke L3
+    List L3;
+    CreateEmpty(&L3);
+    Konkat1(&L, &L2, &L3);
+
+    // Cetak isi list L3 setelah konkatenasi
+    printf("Isi list L3 setelah konkatenasi: ");
+    PrintInfo(L3);
+
+    return 0;
+}

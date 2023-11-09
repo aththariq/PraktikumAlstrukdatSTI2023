@@ -141,7 +141,7 @@ void InversList (List *L);
 /* I.S. sembarang. */
 /* F.S. elemen list dibalik : */
 /* Elemen terakhir menjadi elemen pertama, dan seterusnya. */
-/* Membalik elemen list, tanpa melakukan alokasi/dealokasi. */
+/* Membalik elemen list, tanpa melaku  kan alokasi/dealokasi. */
 
 void Konkat1 (List *L1, List *L2, List *L3);
 /* I.S. L1 dan L2 sembarang */

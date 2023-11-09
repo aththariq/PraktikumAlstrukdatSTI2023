@@ -246,4 +246,17 @@ void InversList (List *L){
         P = NextP;
     }
     First(*L) = Prec;
+}  
+
+void Konkat1 (List *L1, List *L2, List *L3){
+    address P = First(*L1);
+    address P2 = First(*L2);
+    while (P != Nil){
+        InsertLast(L3,P);
+        P = Next(P);
+    }
+    while (P2 != Nil){
+        InsertLast(L3,P2);
+        P2 = Next(P2);
+    }
 }
