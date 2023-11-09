@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "listlinier.h"
 
-int main() {
+/* int main() {
     // Buat list baru
     List L;
     CreateEmpty(&L);
@@ -37,6 +37,8 @@ int main() {
 
     InsVLast(&L2, 25);
     InsVLast(&L2, 30);
+    printf("Isi list L2: ");
+    PrintInfo(L2);
 
     // Konkatenasi list L dan L2 ke L3
     List L3;
@@ -49,3 +51,60 @@ int main() {
 
     return 0;
 }
+ */
+
+/* int main() {
+    // Buat list baru
+    List L;
+    CreateEmpty(&L);
+
+    // Tambahkan elemen ke dalam list
+    InsVLast(&L, 1);
+    InsVLast(&L, 2);
+    InsVLast(&L, 3);
+    InsVLast(&L, 4);
+
+    // Cetak isi list sebelum penghapusan
+    printf("Isi awal list: ");
+    PrintInfo(L);
+
+    // Hapus elemen dengan nilai 2
+    infotype toDelete = 2;
+    DelP(&L, toDelete);
+
+    // Cetak isi list setelah penghapusan
+    printf("Isi list setelah penghapusan: ");
+    PrintInfo(L);
+
+    return 0;
+} */
+
+int main() {
+    // Buat list baru
+    List L;
+    CreateEmpty(&L);
+
+    // Tambahkan elemen ke dalam list
+    InsVLast(&L, 1);
+    InsVLast(&L, 2);
+    InsVLast(&L, 3);
+    InsVLast(&L, 4);
+
+    // Cetak isi list sebelum penghapusan
+    printf("Isi awal list: ");
+    PrintInfo(L);
+
+    // Tentukan elemen sebelum yang akan dihapus
+    address Prec = First(L);
+
+    // Hapus elemen setelah elemen pertama
+    address Pdel;
+    DelAfter(&L, &Pdel, Prec);
+
+    // Cetak isi list setelah penghapusan
+    printf("Isi list setelah penghapusan: ");
+    PrintInfo(L);
+
+    return 0;
+}
+

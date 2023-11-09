@@ -5,6 +5,7 @@
 //Deskirpsi: Soal 1
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "listlinier.h"
 
 boolean IsEmpty (List L){
@@ -150,7 +151,7 @@ void DelLast (List *L, address *P){
 void DelAfter (List *L, address *Pdel, address Prec){
     *Pdel = Next(Prec);
     Next(Prec) = Next(*Pdel);
-    Next(*Pdel) = Nil;
+    Next(*Pdel) = Nil;     
 }
 
 void PrintInfo (List L){
@@ -252,11 +253,11 @@ void Konkat1 (List *L1, List *L2, List *L3){
     address P = First(*L1);
     address P2 = First(*L2);
     while (P != Nil){
-        InsertLast(L3,P);
+        InsVLast(L3,Info(P));
         P = Next(P);
     }
     while (P2 != Nil){
-        InsertLast(L3,P2);
+        InsVLast(L3,Info(P2));
         P2 = Next(P2);
     }
 }
